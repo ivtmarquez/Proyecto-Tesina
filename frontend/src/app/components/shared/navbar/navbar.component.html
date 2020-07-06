@@ -1,16 +1,16 @@
-<nav class="navbar navbar-expand-lg row">
-  <div class="col-1" align="center">
-  </div>
-  <img class="" src=" assets/img/manzana.png" width="50px">
+
+<nav class="navbar navbar-expand-lg fixed-top navbar-light">
+  <!-- <i class="fa fa-arrow-circle-left fa-2x" aria-hidden="true" onclick="history.back()"></i> -->
+  <a class="float-right" class="navbar-brand" [routerLink] = "['home']"><img src="assets/img/manzana.png" width="50"></a>
   <a class="navbar-brand col-6" href="#">Nutrición y Vida</a>
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
-    aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
-
-  <div class="collapse navbar-collapse col-4" align="center" id="navbarSupportedContent">
+  
+  <div class="collapse navbar-collapse" id="navbarCollapse"> 
     <ul class="navbar-nav ml-auto">
-
+      
       <ng-container *ngIf='!authService.logueado(); else logueado'>
         <li class="nav-item active">
           <a class="nav-link" [routerLink]="['home']">Inicio <span class="sr-only"></span></a>
@@ -19,6 +19,7 @@
           <a class="nav-link" [routerLink]="['login']">Login</a>
         </li>
       </ng-container>
+      
       <ng-template #logueado>
         <li class="nav-item active">
           <a class="nav-link" [routerLink]="['usuario']">Inicio <span class="sr-only"></span></a>
@@ -46,8 +47,7 @@
         </li>
       </ng-template>
 
-
     </ul>
-
   </div>
 </nav>
+
